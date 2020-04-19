@@ -11,14 +11,14 @@ function App() {
   const getRepos = async() => {
     const response = await fetch(`https://api.github.com/users/AidenOliver/repos`);
     const data = await response.json();
-    setRepositories(data);
-    console.log(data);
+    const first_name = data[0].name;
+    setRepositories(first_name);
+    console.log(first_name);
   }
-
-  
 
   return (
     <div className="App">
+      {JSON.stringify(repositories)}
       
     </div>
   );
