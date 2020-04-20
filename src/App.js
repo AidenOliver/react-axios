@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
-  const [repositories, setRepositories] = useState([]);
+  const [repositories, setRepositories] = useState([JSON.stringify()]);
 
   useEffect(() => {
     getRepos();
@@ -16,10 +16,10 @@ function App() {
     console.log(first_name);
   }
 
+
   return (
     <div className="App">
-      {JSON.stringify(repositories)}
-      
+      {repositories}
     </div>
   );
 }
