@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
-  const [repositories, setRepositories] = useState([JSON.stringify()]);
+  const [repos, setRepos] = useState([]);
+
+  
 
   useEffect(() => {
     getRepos();
@@ -11,16 +13,20 @@ function App() {
   const getRepos = async() => {
     const response = await fetch(`https://api.github.com/users/AidenOliver/repos`);
     const data = await response.json();
-    const repo_name = data[0].name;
-    
-    setRepositories(repo_name);
-    console.log(repo_name);
+    setRepos(data);
+    console.log(data);
   }
+
 
   
   return (
     <div className="App">
-      {repositories}
+      {repos.map((repo) => (
+        <div>
+          <h4>{repo.name}</h4>
+          <p>{repo.description}</p>
+        </div>
+      ))}
     </div>
   );
 }
