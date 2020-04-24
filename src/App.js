@@ -21,8 +21,8 @@ function App() {
   
   return (
     <div className="App">
-      {repos.map((repo) => (
-        <div>
+      {repos.map((repo, index) => (
+        <div key={index}>
           <h4>{repo.name}</h4>
           <p>{repo.description}</p>
         </div>
