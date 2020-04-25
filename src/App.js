@@ -4,8 +4,6 @@ import './App.css';
 function App() {
   const [repos, setRepos] = useState([]);
 
-  
-
   useEffect(() => {
     getRepos();
   }, []);
@@ -16,15 +14,14 @@ function App() {
     setRepos(data);
     console.log(data);
   }
-
-
   
   return (
     <div className="App">
       {repos.map((repo, index) => (
-        <div key={index}>
+        <div key={index} className="card">
           <h4>{repo.name}</h4>
           <p>{repo.description}</p>
+          <p>Built in {repo.language}</p>
         </div>
       ))}
     </div>
