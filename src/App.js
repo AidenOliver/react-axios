@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
+import Header from "./Header";
 
 function App() {
   const [repos, setRepos] = useState([]);
@@ -17,6 +18,7 @@ function App() {
   
   return (
     <div className="App">
+      <Header />
       {repos.map((repo, index) => (
         <div key={index} className="card">
           <h4>{repo.name}</h4>
